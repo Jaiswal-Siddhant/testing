@@ -23,6 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn ci
     - run: yarn build
+    - uses: actions/checkout@v3
     - name: Deploy to GitHub Pages
       uses: actions/deploy-gh-pages@v4  # Deploy using the official action
       with:
