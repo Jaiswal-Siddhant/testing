@@ -23,3 +23,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn ci
     - run: yarn build
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-gh-pages@v4  # Deploy using the official action
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages  # The branch configured in GitHub Pages settings
+          folder: build  # The output directory after building (usually 'build')
