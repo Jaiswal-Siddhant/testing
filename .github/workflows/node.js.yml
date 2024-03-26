@@ -24,9 +24,10 @@ jobs:
     - run: yarn ci
     - run: yarn build
     - uses: actions/checkout@v3
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-gh-pages@v4  # Deploy using the official action
+    # - name: GitHub Pages action
+    #   uses: peaceiris/actions-gh-pages@v3.9.3
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages  # The branch configured in GitHub Pages settings
-          folder: build  # The output directory after building (usually 'build')
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
